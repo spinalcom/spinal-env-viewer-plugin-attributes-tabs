@@ -1,0 +1,26 @@
+{
+  "name": "spinal-env-viewer-plugin-attributes-tabs",
+  "version": "1.0.3",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "browserify-hmr": "^0.4.0",
+    "spinal-env-viewer-context-menu-service": "git+https://github.com/spinalcom/spinal-env-viewer-context-menu-service.git",
+    "spinal-env-viewer-panel-manager-service": "git+https://github.com/spinalcom/spinal-env-viewer-panel-manager-service.git",
+    "spinal-env-viewer-panel-manager-service_spinalforgeextention": "git+https://github.com/spinalcom/spinal-env-viewer-panel-manager-service_spinalforgeextention.git",
+    "spinal-env-viewer-plugin-attributes-tabs-services": "git+https://github.com/spinalcom/spinal-env-viewer-plugin-documentation-service.git",
+    "vue-moment": "^4.0.0"
+  },
+  "browserify": {
+    "transform": [
+      "vueify",
+      "babelify"
+    ]
+  }
+}
