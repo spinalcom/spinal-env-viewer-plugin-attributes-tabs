@@ -20,12 +20,32 @@ with this file. If not, see
 
 
 <template>
-  <div>
-    <v-btn class="ma-2"
-           tile
-           color="indigo"
-           dark>Tile Button</v-btn>
-  </div>
+  <v-app>
+    <div class="text-xs-right">
+      <v-btn outline
+             color="indigo">
+        Exporter
+      </v-btn>
+      <v-btn fab
+             dark
+             small
+             color="primary">
+        <v-icon dark>add</v-icon>
+      </v-btn>
+    </div>
+    <br><br>
+    <v-data-table :headers="headers"
+                  :items="list"
+                  class="elevation-1"
+                  hide-actions>
+      <template v-slot:items="props">
+        <td>{{ props.item.name }}</td>
+        <td class="text-xs">{{ props.item.infoSpatial.building.name }}</td>
+        <td class="text-xs">{{ props.item.infoSpatial.floor.name }}</td>
+        <td class="text-xs">{{ props.item.infoSpatial.room.name }}</td>
+      </template>
+    </v-data-table>
+  </v-app>
 </template>
 
 <script>
@@ -33,14 +53,39 @@ import {
   SpinalGraphService,
   SpinalNode
 } from "spinal-env-viewer-graph-service";
+import { tabService } from "spinal-env-viewer-plugin-attributes-tabs-services";
 export default {
   name: "my_compo",
   data() {
-    return {};
+    return {
+      headers: [
+        {
+          text: "Room",
+          align: "left",
+          value: "name"
+        },
+        { text: "Building" },
+        { text: "Floor" },
+        { text: "Room" }
+      ],
+      selectedNode: undefined,
+      selectedNodeContext: undefined,
+      list: []
+    };
   },
   components: {},
   methods: {
-    opened(option) {},
+    opened(option) {
+      console.log("upen tabs");
+      this.selectedNode = option.selectedNode;
+      this.selectedNodeContext = option.context;
+      tabService
+        .getList(this.selectedNode, this.selectedNodeContext)
+        .then(list => {
+          console.log(list);
+          this.list = list;
+        });
+    },
     removed(option, viewer) {},
     closed(option, viewer) {}
   }
