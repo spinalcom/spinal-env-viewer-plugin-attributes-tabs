@@ -13,7 +13,7 @@
     "spinal-env-viewer-context-menu-service": "git+https://github.com/spinalcom/spinal-env-viewer-context-menu-service.git",
     "spinal-env-viewer-panel-manager-service": "git+https://github.com/spinalcom/spinal-env-viewer-panel-manager-service.git",
     "spinal-env-viewer-panel-manager-service_spinalforgeextention": "git+https://github.com/spinalcom/spinal-env-viewer-panel-manager-service_spinalforgeextention.git",
-    "spinal-env-viewer-plugin-attributes-tabs-services": "git+https://github.com/spinalcom/spinal-env-viewer-plugin-documentation-service.git",
+    "spinal-env-viewer-plugin-attributes-tabs-services": "git+https://github.com/spinalcom/spinal-env-viewer-plugin-documentation-service.git"
   },
   "browserify": {
     "transform": [
